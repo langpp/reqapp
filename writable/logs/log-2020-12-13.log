@@ -1,0 +1,465 @@
+CRITICAL - 2020-12-13 06:16:33 --> password_hash() expects at least 2 parameters, 1 given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'password_hash()...', 'C:\\xampp\\htdocs...', 7, Array)
+#1 C:\xampp\htdocs\reqapp_\app\Controllers\Auth.php(7): password_hash(1234567890)
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\Auth->index()
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 06:28:13 --> Class 'App\Controllers\UserModel' not found
+#0 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\Auth->auth_check()
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2020-12-13 06:36:49 --> Class 'Config\App\Filters\Auth' not found
+#0 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#3 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2020-12-13 07:23:50 --> Class 'App\Model\KategoriKebutuhanModel' not found
+#0 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->list()
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2020-12-13 07:24:03 --> Class 'App\Model\KategoriKebutuhanModel' not found
+#0 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->list()
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2020-12-13 07:24:43 --> Call to a member function orderBy() on string
+#0 C:\xampp\htdocs\reqapp_\app\Models\KategoriKebutuhanModel.php(16): App\Models\KategoriKebutuhanModel->getDatatableQuery(Array)
+#1 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(19): App\Models\KategoriKebutuhanModel->getAll(Array)
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->list()
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 07:32:32 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\xampp\htdocs\reqapp_\system\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\reqapp_\system\Autoloader\Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Kate...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Kate...')
+#3 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(17): spl_autoload_call('App\\Models\\Kate...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->list()
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 07:32:37 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\xampp\htdocs\reqapp_\system\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\reqapp_\system\Autoloader\Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Kate...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Kate...')
+#3 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(17): spl_autoload_call('App\\Models\\Kate...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->list()
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 07:36:41 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\xampp\htdocs\reqapp_\system\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->requireFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\reqapp_\system\Autoloader\Autoloader.php(258): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(869): class_exists('\\App\\Controller...', true)
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(394): CodeIgniter\CodeIgniter->startController()
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 08:15:13 --> Unknown column 'ketegori_kebutuhan_id' in 'where clause'
+#0 C:\xampp\htdocs\reqapp_\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\reqapp_\system\Database\BaseBuilder.php(2019): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\reqapp_\system\Model.php(1818): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(49): CodeIgniter\Model->__call('getWhere', Array)
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->getByID()
+#7 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#8 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2020-12-13 08:16:27 --> Unknown column 'ketegori_kebutuhan_id' in 'where clause'
+#0 C:\xampp\htdocs\reqapp_\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\reqapp_\system\Database\BaseBuilder.php(2019): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\reqapp_\system\Model.php(1818): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(49): CodeIgniter\Model->__call('getWhere', Array)
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->getByID()
+#7 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#8 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2020-12-13 08:32:30 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 08:34:48 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 08:42:44 --> Undefined index: id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(77): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 77, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 08:45:18 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 08:45:31 --> There is no data to update.
+#0 C:\xampp\htdocs\reqapp_\system\Model.php(834): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(86): CodeIgniter\Model->update(Array)
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 08:49:05 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 08:49:18 --> There is no data to update.
+#0 C:\xampp\htdocs\reqapp_\system\Model.php(834): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(87): CodeIgniter\Model->update(Array)
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 08:53:32 --> There is no data to update.
+#0 C:\xampp\htdocs\reqapp_\system\Model.php(834): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\xampp\htdocs\reqapp_\app\Models\KategoriKebutuhanModel.php(64): CodeIgniter\Model->update(Array)
+#2 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(86): App\Models\KategoriKebutuhanModel->updateData(Array, Array)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2020-12-13 08:57:55 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::where()
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(86): App\Models\KategoriKebutuhanModel->updateData(Array, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 09:00:35 --> There is no data to update.
+#0 C:\xampp\htdocs\reqapp_\system\Model.php(834): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(83): CodeIgniter\Model->update(Array)
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:03:51 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:05:36 --> There is no data to update.
+#0 C:\xampp\htdocs\reqapp_\system\Model.php(834): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(83): CodeIgniter\Model->update(Array)
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:06:08 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:06:22 --> You must use the "set" method to update an entry.
+#0 C:\xampp\htdocs\reqapp_\system\Database\BaseBuilder.php(2430): CodeIgniter\Database\BaseBuilder->validateUpdate()
+#1 C:\xampp\htdocs\reqapp_\system\Model.php(889): CodeIgniter\Database\BaseBuilder->update()
+#2 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(82): CodeIgniter\Model->update(Array, Array)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2020-12-13 09:10:05 --> Unknown column 'kategori_kebutuhan.id' in 'where clause'
+#0 C:\xampp\htdocs\reqapp_\system\Database\MySQLi\Connection.php(331): mysqli->query('UPDATE `kategor...')
+#1 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `kategor...')
+#2 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `kategor...')
+#3 C:\xampp\htdocs\reqapp_\system\Database\BaseBuilder.php(2456): CodeIgniter\Database\BaseConnection->query('UPDATE `kategor...', Array, false)
+#4 C:\xampp\htdocs\reqapp_\system\Model.php(889): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(82): CodeIgniter\Model->update(Array, Array)
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->edit()
+#7 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#8 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2020-12-13 09:11:31 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:13:05 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:23:41 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:25:54 --> Undefined property: CodeIgniter\View\View::$security
+#0 C:\xampp\htdocs\reqapp_\app\Views\pages\kategori-kebutuhan.php(201): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 201, Array)
+#1 C:\xampp\htdocs\reqapp_\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\reqapp_\system\Common.php(1119): CodeIgniter\View\View->render('pages/kategori-...', Array, true)
+#3 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(9): view('pages/kategori-...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->index()
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 09:28:59 --> Undefined property: CodeIgniter\View\View::$security
+#0 C:\xampp\htdocs\reqapp_\app\Views\pages\kategori-kebutuhan.php(201): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 201, Array)
+#1 C:\xampp\htdocs\reqapp_\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\reqapp_\system\Common.php(1119): CodeIgniter\View\View->render('pages/kategori-...', Array, true)
+#3 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(9): view('pages/kategori-...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->index()
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 09:29:03 --> Undefined property: CodeIgniter\View\View::$security
+#0 C:\xampp\htdocs\reqapp_\app\Views\pages\kategori-kebutuhan.php(201): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 201, Array)
+#1 C:\xampp\htdocs\reqapp_\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\reqapp_\system\Common.php(1119): CodeIgniter\View\View->render('pages/kategori-...', Array, true)
+#3 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(9): view('pages/kategori-...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->index()
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 09:29:07 --> Undefined property: CodeIgniter\View\View::$security
+#0 C:\xampp\htdocs\reqapp_\app\Views\pages\kategori-kebutuhan.php(201): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 201, Array)
+#1 C:\xampp\htdocs\reqapp_\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\reqapp_\system\Common.php(1119): CodeIgniter\View\View->render('pages/kategori-...', Array, true)
+#3 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(9): view('pages/kategori-...')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->index()
+#5 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2020-12-13 09:31:34 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:31:53 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('kategori-kebutu...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 09:33:47 --> Undefined index: id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\KategoriKebutuhan.php(89): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 89, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\KategoriKebutuhan->delete()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\KategoriKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:06:59 --> Too few arguments to function App\Models\KategoriKebutuhanModel::getAll(), 0 passed in C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php on line 10 and exactly 1 expected
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(10): App\Models\KategoriKebutuhanModel->getAll()
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->index()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:28:48 --> Undefined index: kategori_kebutuhan_id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->insert()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:29:02 --> Undefined index: kategori_kebutuhan_id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->insert()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:29:07 --> Undefined index: kategori_kebutuhan_id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->insert()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:29:33 --> Undefined index: kategori_kebutuhan_id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->insert()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:29:54 --> Undefined index: kategori_kebutuhan_id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->insert()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:30:10 --> Undefined index: kategori_kebutuhan_id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->insert()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:31:16 --> Undefined property: stdClass::$jenis_kebutuhan
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(30): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->list()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:56:47 --> Undefined index: id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 128, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->edit()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 10:57:45 --> Undefined index: id
+#0 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 128, Array)
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->edit()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2020-12-13 22:18:47 --> Cannot call constructor
+#0 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(890): App\Controllers\Home->__construct()
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2020-12-13 22:20:01 --> Cannot call constructor
+#0 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(890): App\Controllers\Home->__construct()
+#1 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+CRITICAL - 2020-12-13 23:37:28 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('daftar-kebutuha...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 23:37:38 --> The action you requested is not allowed.
+#0 C:\xampp\htdocs\reqapp_\system\Security\Security.php(233): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+#1 C:\xampp\htdocs\reqapp_\system\Filters\CSRF.php(88): CodeIgniter\Security\Security->CSRFVerify(Object(CodeIgniter\HTTP\IncomingRequest))
+#2 C:\xampp\htdocs\reqapp_\system\Filters\Filters.php(173): CodeIgniter\Filters\CSRF->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#3 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(382): CodeIgniter\Filters\Filters->run('daftar-kebutuha...', 'before')
+#4 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#7 {main}
+CRITICAL - 2020-12-13 23:42:22 --> Unknown column 'kebutuhan_id' in 'where clause'
+#0 C:\xampp\htdocs\reqapp_\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\reqapp_\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\reqapp_\system\Database\BaseBuilder.php(2019): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\reqapp_\system\Model.php(1818): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 C:\xampp\htdocs\reqapp_\app\Controllers\DaftarKebutuhan.php(58): CodeIgniter\Model->__call('getWhere', Array)
+#6 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(918): App\Controllers\DaftarKebutuhan->getData()
+#7 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DaftarKebutuhan))
+#8 C:\xampp\htdocs\reqapp_\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\reqapp_\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\reqapp_\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#11 {main}
