@@ -9,7 +9,7 @@ class DaftarKebutuhanModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
-    protected $allowedFields = ['nama_kebutuhan', 'deskripsi', 'kategori_kebutuhan_id', 'satuan', 'status', 'stok', 'foto', 'created_at', 'updated_at'];
+    protected $allowedFields = ['kode_kebutuhan', 'nama_kebutuhan', 'deskripsi', 'kategori_kebutuhan_id', 'satuan', 'status', 'stok', 'foto', 'created_at', 'updated_at'];
 
     protected $column_order = array(null, 'nama_kebutuhan', 'deskripsi');
     protected $column_search = array('nama_kebutuhan', 'deskripsi');

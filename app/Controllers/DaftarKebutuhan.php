@@ -2,6 +2,7 @@
 
 use App\Models\DaftarKebutuhanModel;
 use App\Models\KategoriKebutuhanModel;
+use App\Models\HistoryKebutuhanModel;
 
 class DaftarKebutuhan extends BaseController
 {
@@ -83,81 +84,107 @@ class DaftarKebutuhan extends BaseController
         return json_encode($q);
     }
 
+    public function getAllKebutuhan()
+    {
+        $model = new DaftarKebutuhanModel();
+
+        $q = $model->findAll();
+
+        return json_encode($q);
+    }
+
+    public function getAllKategori()
+    {
+        $model = new KategoriKebutuhanModel();
+
+
+        $q = $model->findAll();
+
+        return json_encode($q);
+    }
+
     public function insert()
     {
         $req = $this->request->getVar();
         $model = new DaftarKebutuhanModel();
         $model2 = new HistoryKebutuhanModel();
-        if ($req['pilihjenis'] == '1') {
-            $arraySplit = explode(',', $req['kategori_kebutuhan_id']);
-            $kategori_kebutuhan_id = $arraySplit[0];
-            $kodekebutuhan = rand(1000000, 9999999);
-            $data = [
-                'kode_kebutuhan' => $kodekebutuhan,
-                'nama_kebutuhan' => $req['nama_kebutuhan_i'],
-                'deskripsi' => $req['deskripsi'],
-                'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
-                'satuan' => $req['satuan'],
-                'stok' => $req['stok'],
-                'status' => $req['status'],
-            ];
+        $files = $this->request->getFileMultiple('foto');
+        for ($x = 0; $x < count($files); $x++) {
+            if ($req['pilihjenis'][$x] == '1') {
+                $arraySplit = explode(',', $req['kategori_kebutuhan_id'][$x]);
+                $kategori_kebutuhan_id = $arraySplit[0];
+                $kodekebutuhan = rand(1000000, 9999999);
+                $data = [
+                    'kode_kebutuhan' => $kodekebutuhan,
+                    'nama_kebutuhan' => $req['nama_kebutuhan_i'][$x],
+                    'deskripsi' => $req['deskripsi'][$x],
+                    'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
+                    'satuan' => $req['satuan'][$x],
+                    'stok' => $req['stok'][$x],
+                    'status' => $req['status'][$x],
+                    'created_at' => $req['tanggal'][$x],
+                ];
 
-            $data2 = [
-                'kode_kebutuhan' => $kodekebutuhan,
-                'nama_kebutuhan' => $req['nama_kebutuhan_i'],
-                'deskripsi' => $req['deskripsi'],
-                'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
-                'satuan' => $req['satuan'],
-                'stok' => $req['stok'],
-                'status' => $req['status'],
-                'harga_satuan' => $req['harga'],
-            ];
-            $validated = $this->validate([
-                'foto' => [
-                    'uploaded[foto]',
-                    'mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]',
-                    'max_size[foto,4096]',
-                ],
-            ]);
-            $files = $this->request->getFile('foto');
-            if ($validated) {
-                $filename = $files->getRandomName();
-                $files->move(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/", $filename);
+                $data2 = [
+                    'kode_kebutuhan' => $kodekebutuhan,
+                    'nama_kebutuhan' => $req['nama_kebutuhan_i'][$x],
+                    'deskripsi' => $req['deskripsi'][$x],
+                    'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
+                    'satuan' => $req['satuan'][$x],
+                    'stok' => $req['stok'][$x],
+                    'status' => 1,
+                    // 'status' => $req['status'][$x],
+                    'harga_satuan' => $req['harga'][$x],
+                    'created_at' => $req['tanggal'][$x],
+                ];
+                // $validated = $this->validate([
+                //     'foto' => [
+                //         'uploaded[foto]',
+                //         'mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]',
+                //         'max_size[foto,4096]',
+                //     ],
+                // ]);
+                // if ($validated) {
+                if (!empty($files[$x])) {
+                    $filename = $files[$x]->getRandomName();
+                    $files[$x]->move(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/", $filename);
 
-                $image = \Config\Services::image()->withFile(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename)->fit(256, 256, 'center')->save(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename);
+                    $image = \Config\Services::image()->withFile(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename)->fit(256, 256, 'center')->save(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename);
 
-                $data['foto'] = $filename;
+                    $data['foto'] = $filename;
+                } else {
+                    $data['foto'] = 'noimage.png';
+                }
+                $q = $model->insert($data);
             } else {
-                $data['foto'] = 'noimage.png';
+                $arraySplit2 = explode(',', $req['nama_kebutuhan_s'][$x]);
+                $id_kebutuhan = $arraySplit2[2];
+                $nama_kebutuhan = $arraySplit2[1];
+                $kode_kebutuhan = $arraySplit2[0];
+                $arraySplit = explode(',', $req['kategori_kebutuhan_id'][$x]);
+                $kategori_kebutuhan_id = $arraySplit[0];
+                $findkebutuhan = $model->where('kode_kebutuhan', $kode_kebutuhan)->first();
+                $data = [
+                    'stok' => $findkebutuhan["stok"] + $req['stok'][$x],
+                    'status' => $req['status'][$x],
+                    'satuan' => $req['satuan'][$x],
+                ];
+                $data2 = [
+                    'kode_kebutuhan' => $kode_kebutuhan,
+                    'nama_kebutuhan' => $nama_kebutuhan,
+                    'deskripsi' => $req['deskripsi'][$x],
+                    'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
+                    'satuan' => $req['satuan'][$x],
+                    'stok' => $req['stok'][$x],
+                    'status' => 1,
+                    // 'status' => $req['status'],
+                    'harga_satuan' => $req['harga'][$x],
+                    'created_at' => $req['tanggal'][$x],
+                ];
+                $q = $model->update($id_kebutuhan, $data);
             }
-
-            $q = $model->insert($data);
-        } else {
-            $arraySplit2 = explode(',', $req['nama_kebutuhan_s']);
-            $id_kebutuhan = $arraySplit2[2];
-            $nama_kebutuhan = $arraySplit2[1];
-            $kode_kebutuhan = $arraySplit2[0];
-            $arraySplit = explode(',', $req['kategori_kebutuhan_id']);
-            $kategori_kebutuhan_id = $arraySplit[0];
-            $findkebutuhan = $model->where('kode_kebutuhan', $kode_kebutuhan)->first();
-            $data = [
-                'stok' => $findkebutuhan["stok"] + $req['stok'],
-                'status' => $req['status'],
-                'satuan' => $req['satuan'],
-            ];
-            $data2 = [
-                'kode_kebutuhan' => $kode_kebutuhan,
-                'nama_kebutuhan' => $nama_kebutuhan,
-                'deskripsi' => $req['deskripsi'],
-                'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
-                'satuan' => $req['satuan'],
-                'stok' => $req['stok'],
-                'status' => $req['status'],
-                'harga_satuan' => $req['harga'],
-            ];
-            $q = $model->update($id_kebutuhan, $data);
+            $p = $model2->insert($data2);
         }
-        $p = $model2->insert($data2);
 
         return json_encode($q);
     }
@@ -182,6 +209,7 @@ class DaftarKebutuhan extends BaseController
             'deskripsi' => $req['deskripsi'],
             'kategori_kebutuhan_id' => $req['kategori_kebutuhan_id'],
             'satuan' => $req['satuan'],
+            'created_at' => $req['tanggal'],
         ];
 
         if ($validated) {
@@ -242,6 +270,7 @@ class DaftarKebutuhan extends BaseController
                     'stok' => $sheetData[$i][5],
                     'status' => $sheetData[$i][7],
                     'harga_satuan' => $sheetData[$i][8],
+                    'created_at' => $sheetData[$i][9],
                 ));
             }
 

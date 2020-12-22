@@ -47,6 +47,8 @@ $routes->get('/daftar-kebutuhan', 'DaftarKebutuhan::index', ['filter' => 'auth']
 $routes->get('/daftar-kebutuhan/list', 'DaftarKebutuhan::list');
 $routes->get('/daftar-kebutuhan/get-data', 'DaftarKebutuhan::getData');
 $routes->get('/daftar-kebutuhan/get-by-id', 'DaftarKebutuhan::getByID');
+$routes->get('/daftar-kebutuhan/getAllKebutuhan', 'DaftarKebutuhan::getAllKebutuhan');
+$routes->get('/daftar-kebutuhan/getAllKategori', 'DaftarKebutuhan::getAllKategori');
 $routes->post('/daftar-kebutuhan/insert', 'DaftarKebutuhan::insert');
 $routes->post('/daftar-kebutuhan/edit', 'DaftarKebutuhan::edit');
 $routes->post('/daftar-kebutuhan/delete', 'DaftarKebutuhan::delete');

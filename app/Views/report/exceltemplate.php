@@ -1,6 +1,6 @@
  <?php
 header("Content-type: application/vnd-ms-excel");
-header("Content-Disposition: attachment; filename=Main Template.xls");
+header("Content-Disposition: attachment; filename=Main Template.xlsx");
 header("Pragma: no-cache");
 header("Expires: 0");
 ?>
@@ -22,6 +22,7 @@ header("Expires: 0");
 				<th>Satuan</th>
 				<th>Status</th>
 				<th>Harga</th>
+				<th>Tanggal</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,6 +41,7 @@ if (!empty($kebutuhan)) {
 				<td></td>
 				<td></td>
 				<td></td>
+				<td><?php echo date('Y-m-d H:i:s') ?></td>
 			</tr>
 			<?php }} else {
     echo "<td style='text-align:center;' colspan='8'>Data Kosong</td>";

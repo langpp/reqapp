@@ -13,7 +13,7 @@ class HistoryKebutuhanModel extends Model
 
     protected $column_order = array(null, 'nama_kebutuhan', 'deskripsi', 'kebutuhan_history.created_at');
     protected $column_search = array('nama_kebutuhan', 'deskripsi');
-    protected $order = array('kebutuhan_history.created_at' => 'asc', 'nama_kebutuhan' => 'asc');
+    protected $order = array('kebutuhan_history.created_at' => 'desc');
 
     public function getAll($req)
     {

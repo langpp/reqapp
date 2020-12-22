@@ -123,7 +123,7 @@
 </div>
 
 <div class="modal fade" id="mdl-tambah">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Tambah Data Kebutuhan</h4>
@@ -132,70 +132,102 @@
       <form id="form-tambah" enctype="multipart/form-data">
         <div class="modal-body">
           <?php echo csrf_field() ?>
-          <div class="form-group">
-            <label>Pilih Nama Kebutuhan Dari</label>
-            <select name="pilihjenis" class="form-control form-control-sm">
-              <option value="" hidden="">Silahkan Pilih</option>
-              <option value="1">Buat Baru</option>
-              <option value="2">Sudah Tersedia</option>
-            </select>
-          </div>
-          <div class="insertdata">
-            <div class="form-group" id="buatbaru">
-              <label>Nama Kebutuhan <i class="fa fa-info-circle" title="Contoh: Kertas A4."></i></label>
-              <input name="nama_kebutuhan_i" class="form-control form-control-sm" type="text" placeholder="Masukan Nama Kebutuhan">
+          <div class="appendfieldset">
+            <div class="fieldset1" style="padding: 8px;border: 2px solid #00acac;border-radius: 5px;margin-bottom: 20px;}">
+              <button type="button" class="btn btn-danger" style="position: relative;float: right;margin-right: -25px;margin-top: -25px;border-radius: 50%;;border-radius: 50%;" onclick="removeformkebutuhan('1')"><i class="fas fa-times"></i></button>
+              <div class="form-group">
+                <label>Pilih Nama Kebutuhan Dari</label>
+                <select name="pilihjenis[]" id="changejenis1" onchange="changejenis('1')" class="form-control form-control-sm">
+                  <option value="" hidden="">Silahkan Pilih</option>
+                  <option value="1">Buat Baru</option>
+                  <option value="2">Sudah Tersedia</option>
+                </select>
+              </div>
+              <div class="insertdata" id="insertdata1">
+                <div class="row">
+                  <div class="col-lg-6">
+                   <div class="form-group" id="buatbaru1">
+                    <label>Nama Kebutuhan <i class="fa fa-info-circle" title="Contoh: Kertas A4."></i></label>
+                    <input name="nama_kebutuhan_i[]" class="form-control form-control-sm" type="text" placeholder="Masukan Nama Kebutuhan">
+                  </div>
+                  <div class="form-group" id="yangada1">
+                    <label>Nama Kebutuhan</label>
+                    <select name="nama_kebutuhan_s[]" id="nama_kebutuhan_s1" class="form-control form-control-sm">
+                      <option value="" hidden="">Silahkan Pilih</option>
+                      <?php if (!empty($kebutuhan)) {foreach ($kebutuhan as $listkebutuhan) {?>
+                        <option value="<?php echo $listkebutuhan['kode_kebutuhan'] ?>, <?php echo $listkebutuhan['nama_kebutuhan'] ?>, <?php echo $listkebutuhan['kebutuhan_id'] ?>"><?php echo $listkebutuhan['nama_kebutuhan'] ?></option>
+                      <?php }}?>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Jenis Kebutuhan <i class="fa fa-info-circle" title="Contoh: ATK."></i></label>
+                    <select name="kategori_kebutuhan_id[]" id="i_kategori_kebutuhan_id1" class="form-control" required>
+                      <option hidden="" value="">Silahkan Pilih</option>
+                      <?php if (!empty($kategori_kebutuhan)) {foreach ($kategori_kebutuhan as $list) {?>
+                        <option value="<?php echo $list['kategori_kebutuhan_id'] ?>, <?php echo $list['kode_kategori'] ?>"><?php echo $list['nama_kategori'] ?></option>
+                      <?php }}?>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Satuan <i class="fa fa-info-circle" title="Contoh: Rim."></i></label>
+                    <input id="i_satuan1" name="satuan[]" class="form-control form-control-sm" type="text" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label>
+                    <input id="i_stok1" name="stok[]" class="form-control form-control-sm" type="number" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label>
+                    <input id="i_status1" name="status[]" class="form-control form-control-sm" type="text" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Harga Satuan <i class="fa fa-info-circle" title="Harga Dalam Rupiah"></i></label>
+                    <input id="i_harga1" name="harga[]" class="form-control form-control-sm" type="text" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Tanggal Input <i class="fa fa-info-circle" title="Tanggal Memasukan Barang"></i></label>
+                    <input id="i_tanggal1" name="tanggal[]" class="form-control form-control-sm" type="date" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Foto <i class="fa fa-info-circle" title="Contoh: Foto Kebutuhan."></i></label>
+                    <input id="i_foto1" name="foto[]" class="form-control form-control-sm" type="file">
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label>Deskripsi <i class="fa fa-info-circle" title="Contoh: Deskripsi Kebutuhan."></i></label>
+                    <textarea class="form-control" name="deskripsi[]" id="i_deskripsi1" cols="30" rows="10" required></textarea>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="form-group" id="yangada">
-              <label>Nama Kebutuhan</label>
-              <select name="nama_kebutuhan_s" class="form-control form-control-sm">
-                <option value="" hidden="">Silahkan Pilih</option>
-                <?php if (!empty($kebutuhan)) {foreach ($kebutuhan as $listkebutuhan) {?>
-                  <option value="<?php echo $listkebutuhan['kode_kebutuhan'] ?>, <?php echo $listkebutuhan['nama_kebutuhan'] ?>, <?php echo $listkebutuhan['kebutuhan_id'] ?>"><?php echo $listkebutuhan['nama_kebutuhan'] ?></option>
-                <?php }}?>
-              </select>
-            </div>
-          <div class="form-group">
-            <label>Deskripsi <i class="fa fa-info-circle" title="Contoh: Deskripsi Kebutuhan."></i></label>
-            <textarea class="form-control" name="deskripsi" id="i_deskripsi" cols="30" rows="10" required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Jenis Kebutuhan <i class="fa fa-info-circle" title="Contoh: ATK."></i></label>
-            <select name="kategori_kebutuhan_id" id="i_kategori_kebutuhan_id" class="form-control" required>
-              <option hidden="" value="">Silahkan Pilih</option>
-              <?php if (!empty($kategori_kebutuhan)) {foreach ($kategori_kebutuhan as $list) {?>
-                <option value="<?php echo $list['kategori_kebutuhan_id'] ?>, <?php echo $list['kode_kategori'] ?>"><?php echo $list['nama_kategori'] ?></option>
-              <?php }}?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Satuan <i class="fa fa-info-circle" title="Contoh: Rim."></i></label>
-            <input id="i_satuan" name="satuan" class="form-control form-control-sm" type="text" required>
-          </div>
-          <div class="form-group">
-            <label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label>
-            <input id="i_stok" name="stok" class="form-control form-control-sm" type="number" required>
-          </div>
-          <div class="form-group">
-            <label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label>
-            <input id="i_status" name="status" class="form-control form-control-sm" type="text" required>
-          </div>
-          <div class="form-group">
-            <label>Harga Satuan <i class="fa fa-info-circle" title="Harga Dalam Rupiah"></i></label>
-            <input id="i_harga" name="harga" class="form-control form-control-sm" type="text" required>
-          </div>
-          <div class="form-group">
-            <label>Foto <i class="fa fa-info-circle" title="Contoh: Foto Kebutuhan."></i></label>
-            <input id="i_foto" name="foto" class="form-control form-control-sm" type="file">
-          </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-          <button type="button" id="btn-simpan" class="btn btn-success">Simpan</button>
+        <div class="text-center">
+          <button type="button" class="btn btn-success m-t-3" onclick="addformkebutuhan()">Add Form</button>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+        <button type="button" id="btn-simpan" class="btn btn-success">Simpan</button>
+      </div>
+    </form>
   </div>
+</div>
 </div>
 
 <div class="modal fade" id="mdl-edit">
@@ -236,6 +268,10 @@
           <div class="form-group">
             <label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label>
             <input id="e_status" name="status" class="form-control form-control-sm" type="text">
+          </div>
+          <div class="form-group">
+            <label>Tanggal Input <i class="fa fa-info-circle" title="Tanggal Memasukan Barang"></i></label>
+            <input id="e_tanggal" name="tanggal" class="form-control form-control-sm" type="date" required>
           </div>
           <div class="form-group">
             <label>Foto <i class="fa fa-info-circle" title="Contoh: Foto Kebutuhan."></i></label>
@@ -290,24 +326,82 @@
 <script src="<?=base_url('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')?>"></script>
 
 <script>
-  $(function() {
-    $(".insertdata").hide();
+  function addformkebutuhan(){
+    var rand = getRandomInteger(1000000,9999999);
+    var html = `<div class="fieldset${rand}" style="padding: 8px;border: 2px solid #00acac;border-radius: 5px;margin-bottom: 20px;}"><button type="button" class="btn btn-danger" style="position: relative;float: right;margin-right: -25px;margin-top: -25px;border-radius: 50%;;border-radius: 50%;" onclick="removeformkebutuhan('${rand}')"><i class="fas fa-times"></i></button><div class="form-group"><label>Pilih Nama Kebutuhan Dari</label><select name="pilihjenis[]" onchange="changejenis('${rand}')" id="changejenis${rand}" class="form-control form-control-sm"><option value="" hidden="">Silahkan Pilih</option><option value="1">Buat Baru</option><option value="2">Sudah Tersedia</option></select></div><div class="insertdata" id="insertdata${rand}"><div class="row"><div class="col-lg-6"><div class="form-group" id="buatbaru${rand}"><label>Nama Kebutuhan <i class="fa fa-info-circle" title="Contoh: Kertas A4."></i></label><input name="nama_kebutuhan_i[]" class="form-control form-control-sm" type="text" placeholder="Masukan Nama Kebutuhan"></div><div class="form-group" id="yangada${rand}"><label>Nama Kebutuhan</label><select name="nama_kebutuhan_s[]" id="nama_kebutuhan_s${rand}" class="form-control form-control-sm"> <option value="" hidden="">Silahkan Pilih</option></select></div></div><div class="col-lg-6"><div class="form-group"><label>Jenis Kebutuhan <i class="fa fa-info-circle" title="Contoh: ATK."></i></label><select name="kategori_kebutuhan_id[]" id="i_kategori_kebutuhan_id${rand}" class="form-control" required><option hidden="" value="">Silahkan Pilih</option></select></div></div><div class="col-lg-4"><div class="form-group"><label>Satuan <i class="fa fa-info-circle" title="Contoh: Rim."></i></label><input id="i_satuan${rand}" name="satuan[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label><input id="i_stok${rand}" name="stok[]" class="form-control form-control-sm" type="number" required></div></div><div class="col-lg-4"><div class="form-group"><label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label><input id="i_status${rand}" name="status[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Harga Satuan <i class="fa fa-info-circle" title="Harga Dalam Rupiah"></i></label><input id="i_harga${rand}" name="harga[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Tanggal Input <i class="fa fa-info-circle" title="Tanggal Memasukan Barang"></i></label><input id="i_tanggal${rand}" name="tanggal[]" class="form-control form-control-sm" type="date" required></div></div><div class="col-lg-4"><div class="form-group"><label>Foto <i class="fa fa-info-circle" title="Contoh: Foto Kebutuhan."></i></label><input id="i_foto${rand}" name="foto[]" class="form-control form-control-sm" type="file"></div></div><div class="col-lg-12"><div class="form-group"><label>Deskripsi <i class="fa fa-info-circle" title="Contoh: Deskripsi Kebutuhan."></i></label><textarea class="form-control" name="deskripsi[]" id="i_deskripsi${rand}" cols="30" rows="10" required></textarea></div></div></div></div></div>`;
+    $(".appendfieldset").append(html);
+    $("#insertdata" + rand).hide();
 
-    $("select[name='pilihjenis']").change(function(){
-      if (this.value !== "") {
-        if (this.value == "1") {
-          $("#buatbaru").show();
-          $("#yangada").hide();
-          $(".insertdata").show();
-        }else{
-          $("#buatbaru").hide();
-          $("#yangada").show();
-          $(".insertdata").show();
-        }
+    ajaxnamakebutuhan(rand);
+    ajaxjeniskebutuhan(rand);
+  }
+
+  function removeformkebutuhan(uid){
+    $(".fieldset"+uid).remove();
+  }
+
+  function getRandomInteger(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  function changejenis(arr){
+    if ($("#changejenis"+arr).val() !== "") {
+      if ($("#changejenis"+arr).val() == "1") {
+        $("#buatbaru" + arr).show();
+        $("#yangada" + arr).hide();
+        $("#insertdata" + arr).show();
       }else{
-        $(".insertdata").hide();
+        $("#buatbaru" + arr).hide();
+        $("#yangada" + arr).show();
+        $("#insertdata" + arr).show();
+      }
+    }else{
+      $("#insertdata" + arr).hide();
+    }
+  }
+
+  function ajaxnamakebutuhan(arr){
+    var html = "";
+    const url = `http://${window.location.host}`;
+    $.ajax({
+      type: "GET",
+      url: `${url}/daftar-kebutuhan/getAllKebutuhan`,
+      data: {
+      },
+      dataType: "json",
+      success: function(data) {
+        var html = '<option value="" hidden="">Silahkan Pilih</option>';
+        console.log(data);
+        $.each(data, function(index, val){
+          html += `<option value="${val['kode_kebutuhan']}, ${val['nama_kebutuhan']}, ${val['kebutuhan_id']}">${val['nama_kebutuhan']}</option>`;
+        });
+        $("#nama_kebutuhan_s" + arr).html(html);
       }
     });
+  }
+
+  function ajaxjeniskebutuhan(arr){
+    var html = "";
+    const url = `http://${window.location.host}`;
+    $.ajax({
+      type: "GET",
+      url: `${url}/daftar-kebutuhan/getAllKategori`,
+      data: {
+      },
+      dataType: "json",
+      success: function(data) {
+        var html = '<option value="" hidden="">Silahkan Pilih</option>';
+        console.log(data);
+        $.each(data, function(index, val){
+          html += `<option value="${val['kategori_kebutuhan_id']}, ${val['kode_kategori']}">${val['nama_kategori']}</option>`;
+        });
+        $("#i_kategori_kebutuhan_id" + arr).html(html);
+      }
+    });
+  }
+  $(function() {
+    $(".insertdata").hide();
     document.querySelector("html").classList.add('js');
 
     $('.input-file-trigger').off('click').on('click', function () {
@@ -372,9 +466,24 @@
           $("#e_satuan").val(data.satuan);
           $("#e_stok").val(data.stok);
           $("#e_status").val(data.status);
+          $("#e_tanggal").val(formatDate(data.created_at));
         }
       });
     });
+
+    function formatDate(date) {
+      var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+      if (month.length < 2) 
+        month = '0' + month;
+      if (day.length < 2) 
+        day = '0' + day;
+
+      return [year, month, day].join('-');
+    }
 
     //* Delete
     $("#tbl-daftar-kebutuhan tbody").on("click", ".delete", function() {
