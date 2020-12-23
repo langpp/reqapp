@@ -42,7 +42,7 @@ if (!empty($kebutuhan)) {
 				<td><?php echo $data['created_at']; ?></td>
 			</tr>
 			<?php }} else {
-    echo "<td style='text-align:center;' colspan='8'>Data Kosong</td>";
+    echo "<td style='text-align:center;' colspan='9'>Data Kosong</td>";
 }?>
 		</tbody>
 	</table>

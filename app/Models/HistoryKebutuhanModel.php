@@ -9,7 +9,7 @@ class HistoryKebutuhanModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
-    protected $allowedFields = ['kode_kebutuhan', 'nama_kebutuhan', 'deskripsi', 'kategori_kebutuhan_id', 'satuan', 'status', 'foto', 'stok', 'harga_satuan', 'created_at', 'updated_at'];
+    protected $allowedFields = ['kode_kebutuhan', 'kebutuhan_id', 'nama_kebutuhan', 'deskripsi', 'kategori_kebutuhan_id', 'satuan', 'status', 'foto', 'stok', 'harga_satuan', 'created_at', 'updated_at'];
 
     protected $column_order = array(null, 'nama_kebutuhan', 'deskripsi', 'kebutuhan_history.created_at');
     protected $column_search = array('nama_kebutuhan', 'deskripsi');

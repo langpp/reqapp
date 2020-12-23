@@ -74,7 +74,7 @@ class DaftarKebutuhan extends BaseController
     {
         $req = $this->request->getVar();
         $model = new DaftarKebutuhanModel();
-
+        $model->join('kategori_kebutuhan', 'kategori_kebutuhan.kategori_kebutuhan_id = kebutuhan.kategori_kebutuhan_id');
         $data = [
             'kebutuhan_id' => $req['id'],
         ];
@@ -109,24 +109,39 @@ class DaftarKebutuhan extends BaseController
         $model = new DaftarKebutuhanModel();
         $model2 = new HistoryKebutuhanModel();
         $files = $this->request->getFileMultiple('foto');
+        
         for ($x = 0; $x < count($files); $x++) {
             if ($req['pilihjenis'][$x] == '1') {
-                $arraySplit = explode(',', $req['kategori_kebutuhan_id'][$x]);
+                $arraySplit = explode(', ', $req['kategori_kebutuhan_id'][$x]);
                 $kategori_kebutuhan_id = $arraySplit[0];
-                $kodekebutuhan = rand(1000000, 9999999);
+                $lastid = $model->orderBy('kebutuhan_id',"desc")->findAll();
+
                 $data = [
-                    'kode_kebutuhan' => $kodekebutuhan,
+                    'kode_kebutuhan' => $arraySplit[1] . '-' . ($lastid[0]['kebutuhan_id']+1),
                     'nama_kebutuhan' => $req['nama_kebutuhan_i'][$x],
                     'deskripsi' => $req['deskripsi'][$x],
                     'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
                     'satuan' => $req['satuan'][$x],
                     'stok' => $req['stok'][$x],
-                    'status' => $req['status'][$x],
+                    'status' => 1,
+                    // 'status' => $req['status'][$x],
                     'created_at' => $req['tanggal'][$x],
                 ];
 
+                if (!empty($files[$x])) {
+                    $filename = $files[$x]->getRandomName();
+                    $files[$x]->move(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/", $filename);
+
+                    $image = \Config\Services::image()->withFile(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename)->fit(256, 256, 'center')->save(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename);
+
+                    $data['foto'] = $filename;
+                } else {
+                    $data['foto'] = 'noimage.png';
+                }
+                $q = $model->insert($data);
                 $data2 = [
-                    'kode_kebutuhan' => $kodekebutuhan,
+                    'kode_kebutuhan' => $arraySplit[1] . '-' . ($lastid[0]['kebutuhan_id'] + 1),
+                    'kebutuhan_id' => $model->getInsertID(),
                     'nama_kebutuhan' => $req['nama_kebutuhan_i'][$x],
                     'deskripsi' => $req['deskripsi'][$x],
                     'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
@@ -145,35 +160,22 @@ class DaftarKebutuhan extends BaseController
                 //     ],
                 // ]);
                 // if ($validated) {
-                if (!empty($files[$x])) {
-                    $filename = $files[$x]->getRandomName();
-                    $files[$x]->move(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/", $filename);
-
-                    $image = \Config\Services::image()->withFile(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename)->fit(256, 256, 'center')->save(ROOTPATH . "public/" . getenv('AVATAR_KEBUTUHAN_LOC') . "/" . $filename);
-
-                    $data['foto'] = $filename;
-                } else {
-                    $data['foto'] = 'noimage.png';
-                }
-                $q = $model->insert($data);
+                $p = $model2->insert($data2);
             } else {
-                $arraySplit2 = explode(',', $req['nama_kebutuhan_s'][$x]);
-                $id_kebutuhan = $arraySplit2[2];
-                $nama_kebutuhan = $arraySplit2[1];
-                $kode_kebutuhan = $arraySplit2[0];
-                $arraySplit = explode(',', $req['kategori_kebutuhan_id'][$x]);
-                $kategori_kebutuhan_id = $arraySplit[0];
-                $findkebutuhan = $model->where('kode_kebutuhan', $kode_kebutuhan)->first();
+                $arraySplit2 = explode(', ', $req['nama_kebutuhan_s'][$x]);
+                $arraySplit = explode(', ', $req['kategori_kebutuhan_id'][$x]);
+                $findkebutuhan = $model->where('kebutuhan_id', $arraySplit2[2])->first();
                 $data = [
                     'stok' => $findkebutuhan["stok"] + $req['stok'][$x],
-                    'status' => $req['status'][$x],
+                    // 'status' => $req['status'][$x],
                     'satuan' => $req['satuan'][$x],
                 ];
                 $data2 = [
-                    'kode_kebutuhan' => $kode_kebutuhan,
-                    'nama_kebutuhan' => $nama_kebutuhan,
+                    'kode_kebutuhan' => $arraySplit2[0],
+                    'kebutuhan_id' => $arraySplit2[2],
+                    'nama_kebutuhan' => $arraySplit2[1],
                     'deskripsi' => $req['deskripsi'][$x],
-                    'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
+                    'kategori_kebutuhan_id' => $arraySplit2[3],
                     'satuan' => $req['satuan'][$x],
                     'stok' => $req['stok'][$x],
                     'status' => 1,
@@ -181,11 +183,10 @@ class DaftarKebutuhan extends BaseController
                     'harga_satuan' => $req['harga'][$x],
                     'created_at' => $req['tanggal'][$x],
                 ];
-                $q = $model->update($id_kebutuhan, $data);
+                $q = $model->update($arraySplit2[2], $data);
+                $p = $model2->insert($data2);
             }
-            $p = $model2->insert($data2);
         }
-
         return json_encode($q);
     }
 
@@ -193,9 +194,13 @@ class DaftarKebutuhan extends BaseController
     {
         $req = $this->request->getVar();
         $model = new DaftarKebutuhanModel();
+        $model2 = new HistoryKebutuhanModel();
 
         $files = $this->request->getFile('foto');
+        $findkebutuhan = $model->where('kebutuhan_id', $req['id'])->first();
 
+        $arraySplit = explode(', ', $req['kategori_kebutuhan_id']);
+        $arraySplit2 = explode('-', $findkebutuhan['kode_kebutuhan']);
         $validated = $this->validate([
             'foto' => [
                 'uploaded[foto]',
@@ -207,9 +212,15 @@ class DaftarKebutuhan extends BaseController
         $data = [
             'nama_kebutuhan' => $req['nama_kebutuhan'],
             'deskripsi' => $req['deskripsi'],
-            'kategori_kebutuhan_id' => $req['kategori_kebutuhan_id'],
+            'kategori_kebutuhan_id' => $arraySplit[0],
+            'kode_kebutuhan' => $arraySplit[1] . '-' . $arraySplit2[1],
             'satuan' => $req['satuan'],
             'created_at' => $req['tanggal'],
+        ];
+
+        $data2 = [
+            'kategori_kebutuhan_id' => $arraySplit[0],
+            'kode_kebutuhan' => $arraySplit[1] . '-' . $arraySplit2[1],
         ];
 
         if ($validated) {
@@ -222,6 +233,8 @@ class DaftarKebutuhan extends BaseController
         }
 
         $q = $model->update($req['id'], $data);
+        $model2->set($data2);
+        $p = $model2->where('kebutuhan_id', $req['id'])->update();
 
         return json_encode($q);
     }
@@ -240,6 +253,7 @@ class DaftarKebutuhan extends BaseController
     {
         $model = new DaftarKebutuhanModel();
         $model2 = new HistoryKebutuhanModel();
+        $model3 = new KategoriKebutuhanModel();
         $file_mimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         if (isset($_FILES['filex']['name']) && in_array($_FILES['filex']['type'], $file_mimes)) {
             $arr_file = explode('.', $_FILES['filex']['name']);
@@ -254,27 +268,63 @@ class DaftarKebutuhan extends BaseController
             $tambahData = array();
             $tambahData2 = array();
             for ($i = 1; $i < count($sheetData); $i++) {
-                $findkebutuhan = $model->where('kode_kebutuhan', $sheetData[$i][1])->first();
-                $updatedata = array(
-                    'status' => $sheetData[$i][7],
-                    'satuan' => $sheetData[$i][6],
-                    'stok' => $findkebutuhan['stok'] + $sheetData[$i][5],
-                );
-                $model->update($sheetData[$i][0], $updatedata);
-                array_push($tambahData2, array(
-                    'kode_kebutuhan' => $sheetData[$i][1],
-                    'nama_kebutuhan' => $sheetData[$i][2],
-                    'deskripsi' => $sheetData[$i][4],
-                    'kategori_kebutuhan_id' => $sheetData[$i][3],
-                    'satuan' => $sheetData[$i][6],
-                    'stok' => $sheetData[$i][5],
-                    'status' => $sheetData[$i][7],
-                    'harga_satuan' => $sheetData[$i][8],
-                    'created_at' => $sheetData[$i][9],
-                ));
-            }
+                $findkebutuhan = $model->where('kebutuhan_id', $sheetData[$i][0])->first();
+                if (!empty($findkebutuhan)) {
+                    $updatedata = array(
+                        'stok' => $findkebutuhan['stok'] + $sheetData[$i][4],
+                    );
+                    $model->update($sheetData[$i][0], $updatedata);
+                    $data2 = [
+                        'kode_kebutuhan' => $findkebutuhan['kode_kebutuhan'],
+                        'kebutuhan_id' => $sheetData[$i][0],
+                        'nama_kebutuhan' => $findkebutuhan['nama_kebutuhan'],
+                        'deskripsi' => $sheetData[$i][3],
+                        'kategori_kebutuhan_id' => $findkebutuhan['kategori_kebutuhan_id'],
+                        'satuan' => $sheetData[$i][5],
+                        'stok' => $sheetData[$i][4],
+                        'status' => 1,
+                        'harga_satuan' => $sheetData[$i][6],
+                        'created_at' => $sheetData[$i][7],
+                    ];
+                    $tambah2 = $model2->insert($data2);
+                }else{
+                    $lastid = $model->orderBy('kebutuhan_id',"desc")->findAll();
+                    $kategori_id_find = $model3->where('kode_kategori', $sheetData[$i][2])->first();
+                    $kategori_id_all = $model3->first();
+                    if (!empty($kategori_id_find['kode_kategori'])) {
+                        $kat_id = $kategori_id_find['kategori_kebutuhan_id'];
+                    }else{
+                        $kat_id = $kategori_id_all['kategori_kebutuhan_id'];
+                    }
+                    $data = [
+                        'kode_kebutuhan' => $sheetData[$i][2] . '-' . ($lastid[0]['kebutuhan_id']+1),
+                        'nama_kebutuhan' => $sheetData[$i][1],
+                        'deskripsi' => $sheetData[$i][3],
+                        'kategori_kebutuhan_id' => $kat_id,
+                        'satuan' => $sheetData[$i][5],
+                        'stok' => $sheetData[$i][4],
+                        'status' => 1,
+                        // 'status' => $req['status'][$x],
+                        'created_at' => $sheetData[$i][7],
+                        'foto' => 'noimage.png',
+                    ];
+                    $q = $model->insert($data);
+                    $data2 = [
+                        'kode_kebutuhan' => $sheetData[$i][2] . '-' . ($lastid[0]['kebutuhan_id']+1),
+                        'kebutuhan_id' => $model->getInsertID(),
+                        'nama_kebutuhan' => $sheetData[$i][1],
+                        'deskripsi' => $sheetData[$i][3],
+                        'kategori_kebutuhan_id' => $kat_id,
+                        'satuan' => $sheetData[$i][5],
+                        'stok' => $sheetData[$i][4],
+                        'status' => 1,
+                        'harga_satuan' => $sheetData[$i][6],
+                        'created_at' => $sheetData[$i][7],
+                    ];
+                    $tambah2 = $model2->insert($data2);
+                }
+                }
 
-            $tambah2 = $model2->insertBatch($tambahData2);
             if ($tambah2) {
                 echo "<script>alert('Data Berhasil Disimpan');window.location.href = '/daftar-kebutuhan';</script>";
             } else {

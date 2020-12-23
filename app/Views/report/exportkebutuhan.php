@@ -20,7 +20,6 @@ header("Expires: 0");
 				<th>Kategori</th>
 				<th>Stok</th>
 				<th>Satuan</th>
-				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,10 +36,9 @@ if (!empty($kebutuhan)) {
 				<td><?php echo $data['nama_kategori']; ?></td>
 				<td><?php echo $data['stok']; ?></td>
 				<td><?php echo $data['satuan']; ?></td>
-				<td><?php echo $data['status']; ?></td>
 			</tr>
 			<?php }} else {
-    echo "<td style='text-align:center;' colspan='8'>Data Kosong</td>";
+    echo "<td style='text-align:center;' colspan='7'>Data Kosong</td>";
 }?>
 		</tbody>
 	</table>

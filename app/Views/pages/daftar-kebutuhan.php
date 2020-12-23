@@ -154,7 +154,7 @@
                     <select name="nama_kebutuhan_s[]" id="nama_kebutuhan_s1" class="form-control form-control-sm">
                       <option value="" hidden="">Silahkan Pilih</option>
                       <?php if (!empty($kebutuhan)) {foreach ($kebutuhan as $listkebutuhan) {?>
-                        <option value="<?php echo $listkebutuhan['kode_kebutuhan'] ?>, <?php echo $listkebutuhan['nama_kebutuhan'] ?>, <?php echo $listkebutuhan['kebutuhan_id'] ?>"><?php echo $listkebutuhan['nama_kebutuhan'] ?></option>
+                        <option value="<?php echo $listkebutuhan['kode_kebutuhan'] ?>, <?php echo $listkebutuhan['nama_kebutuhan'] ?>, <?php echo $listkebutuhan['kebutuhan_id'] ?>, <?php echo $listkebutuhan['kategori_kebutuhan_id'] ?>"><?php echo $listkebutuhan['nama_kebutuhan'] ?></option>
                       <?php }}?>
                     </select>
                   </div>
@@ -170,24 +170,24 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                   <div class="form-group">
                     <label>Satuan <i class="fa fa-info-circle" title="Contoh: Rim."></i></label>
                     <input id="i_satuan1" name="satuan[]" class="form-control form-control-sm" type="text" required>
                   </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                   <div class="form-group">
                     <label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label>
                     <input id="i_stok1" name="stok[]" class="form-control form-control-sm" type="number" required>
                   </div>
                 </div>
-                <div class="col-lg-4">
+                <!-- <div class="col-lg-4">
                   <div class="form-group">
                     <label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label>
                     <input id="i_status1" name="status[]" class="form-control form-control-sm" type="text" required>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label>Harga Satuan <i class="fa fa-info-circle" title="Harga Dalam Rupiah"></i></label>
@@ -230,7 +230,7 @@
 </div>
 
 <div class="modal fade" id="mdl-edit">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Edit Data Kebutuhan</h4>
@@ -252,7 +252,7 @@
             <label>Jenis Kebutuhan <i class="fa fa-info-circle" title="Contoh: ATK."></i></label>
             <select name="kategori_kebutuhan_id" id="e_kategori_kebutuhan_id" class="form-control" required>
               <?php foreach ($kategori_kebutuhan as $list) {?>
-                <option value="<?php echo $list['kategori_kebutuhan_id'] ?>"><?php echo $list['nama_kategori'] ?></option>
+                <option value="<?php echo $list['kategori_kebutuhan_id'] ?>, <?php echo $list['kode_kategori'] ?>"><?php echo $list['nama_kategori'] ?></option>
               <?php }?>
             </select>
           </div>
@@ -264,10 +264,10 @@
             <label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label>
             <input id="e_stok" name="stok" class="form-control form-control-sm" type="number" readonly="">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label>
             <input id="e_status" name="status" class="form-control form-control-sm" type="text">
-          </div>
+          </div> -->
           <div class="form-group">
             <label>Tanggal Input <i class="fa fa-info-circle" title="Tanggal Memasukan Barang"></i></label>
             <input id="e_tanggal" name="tanggal" class="form-control form-control-sm" type="date" required>
@@ -327,7 +327,7 @@
 <script>
   function addformkebutuhan(){
     var rand = getRandomInteger(1000000,9999999);
-    var html = `<div class="fieldset${rand}" style="padding: 10px;border: 2px solid #00acac;border-radius: 5px;margin-bottom: 20px;}"><button type="button" class="btn btn-danger" style="position: relative;float: right;margin-right: -25px;margin-top: -25px;border-radius: 50%;;border-radius: 50%;" onclick="removeformkebutuhan('${rand}')"><i class="fas fa-times"></i></button><div class="form-group"><label>Pilih Nama Kebutuhan Dari</label><select name="pilihjenis[]" onchange="changejenis('${rand}')" id="changejenis${rand}" class="form-control form-control-sm"><option value="" hidden="">Silahkan Pilih</option><option value="1">Buat Baru</option><option value="2">Sudah Tersedia</option></select></div><div class="insertdata" id="insertdata${rand}"><div class="row"><div class="col-lg-6"><div class="form-group" id="buatbaru${rand}"><label>Nama Kebutuhan <i class="fa fa-info-circle" title="Contoh: Kertas A4."></i></label><input name="nama_kebutuhan_i[]" class="form-control form-control-sm" type="text" placeholder="Masukan Nama Kebutuhan"></div><div class="form-group" id="yangada${rand}"><label>Nama Kebutuhan</label><select name="nama_kebutuhan_s[]" id="nama_kebutuhan_s${rand}" class="form-control form-control-sm"> <option value="" hidden="">Silahkan Pilih</option></select></div></div><div class="col-lg-6"><div class="form-group"><label>Jenis Kebutuhan <i class="fa fa-info-circle" title="Contoh: ATK."></i></label><select name="kategori_kebutuhan_id[]" id="i_kategori_kebutuhan_id${rand}" class="form-control" required><option hidden="" value="">Silahkan Pilih</option></select></div></div><div class="col-lg-4"><div class="form-group"><label>Satuan <i class="fa fa-info-circle" title="Contoh: Rim."></i></label><input id="i_satuan${rand}" name="satuan[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label><input id="i_stok${rand}" name="stok[]" class="form-control form-control-sm" type="number" required></div></div><div class="col-lg-4"><div class="form-group"><label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label><input id="i_status${rand}" name="status[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Harga Satuan <i class="fa fa-info-circle" title="Harga Dalam Rupiah"></i></label><input id="i_harga${rand}" name="harga[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Tanggal Input <i class="fa fa-info-circle" title="Tanggal Memasukan Barang"></i></label><input id="i_tanggal${rand}" name="tanggal[]" class="form-control form-control-sm" type="date" required></div></div><div class="col-lg-4"><div class="form-group"><label>Foto <i class="fa fa-info-circle" title="Contoh: Foto Kebutuhan."></i></label><input id="i_foto${rand}" name="foto[]" class="form-control form-control-sm" type="file"></div></div><div class="col-lg-12"><div class="form-group"><label>Deskripsi <i class="fa fa-info-circle" title="Contoh: Deskripsi Kebutuhan."></i></label><textarea class="form-control" name="deskripsi[]" id="i_deskripsi${rand}" cols="30" rows="10" required></textarea></div></div></div></div></div>`;
+    var html = `<div class="fieldset${rand}" style="padding: 10px;border: 2px solid #00acac;border-radius: 5px;margin-bottom: 20px;}"><button type="button" class="btn btn-danger" style="position: relative;float: right;margin-right: -25px;margin-top: -25px;border-radius: 50%;;border-radius: 50%;" onclick="removeformkebutuhan('${rand}')"><i class="fas fa-times"></i></button><div class="form-group"><label>Pilih Nama Kebutuhan Dari</label><select name="pilihjenis[]" onchange="changejenis('${rand}')" id="changejenis${rand}" class="form-control form-control-sm"><option value="" hidden="">Silahkan Pilih</option><option value="1">Buat Baru</option><option value="2">Sudah Tersedia</option></select></div><div class="insertdata" id="insertdata${rand}"><div class="row"><div class="col-lg-6"><div class="form-group" id="buatbaru${rand}"><label>Nama Kebutuhan <i class="fa fa-info-circle" title="Contoh: Kertas A4."></i></label><input name="nama_kebutuhan_i[]" class="form-control form-control-sm" type="text" placeholder="Masukan Nama Kebutuhan"></div><div class="form-group" id="yangada${rand}"><label>Nama Kebutuhan</label><select name="nama_kebutuhan_s[]" id="nama_kebutuhan_s${rand}" class="form-control form-control-sm"> <option value="" hidden="">Silahkan Pilih</option></select></div></div><div class="col-lg-6"><div class="form-group"><label>Jenis Kebutuhan <i class="fa fa-info-circle" title="Contoh: ATK."></i></label><select name="kategori_kebutuhan_id[]" id="i_kategori_kebutuhan_id${rand}" class="form-control" required><option hidden="" value="">Silahkan Pilih</option></select></div></div><div class="col-lg-6"><div class="form-group"><label>Satuan <i class="fa fa-info-circle" title="Contoh: Rim."></i></label><input id="i_satuan${rand}" name="satuan[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-6"><div class="form-group"><label>Stok <i class="fa fa-info-circle" title="Stok Barang"></i></label><input id="i_stok${rand}" name="stok[]" class="form-control form-control-sm" type="number" required></div></div><!--<div class="col-lg-4"><div class="form-group"><label>Status <i class="fa fa-info-circle" title="Status Barang"></i></label><input id="i_status${rand}" name="status[]" class="form-control form-control-sm" type="text" required></div></div>--><div class="col-lg-4"><div class="form-group"><label>Harga Satuan <i class="fa fa-info-circle" title="Harga Dalam Rupiah"></i></label><input id="i_harga${rand}" name="harga[]" class="form-control form-control-sm" type="text" required></div></div><div class="col-lg-4"><div class="form-group"><label>Tanggal Input <i class="fa fa-info-circle" title="Tanggal Memasukan Barang"></i></label><input id="i_tanggal${rand}" name="tanggal[]" class="form-control form-control-sm" type="date" required></div></div><div class="col-lg-4"><div class="form-group"><label>Foto <i class="fa fa-info-circle" title="Contoh: Foto Kebutuhan."></i></label><input id="i_foto${rand}" name="foto[]" class="form-control form-control-sm" type="file"></div></div><div class="col-lg-12"><div class="form-group"><label>Deskripsi <i class="fa fa-info-circle" title="Contoh: Deskripsi Kebutuhan."></i></label><textarea class="form-control" name="deskripsi[]" id="i_deskripsi${rand}" cols="30" rows="10" required></textarea></div></div></div></div></div>`;
     $(".appendfieldset").append(html);
     $("#insertdata" + rand).hide();
 
@@ -373,7 +373,7 @@
         var html = '<option value="" hidden="">Silahkan Pilih</option>';
         console.log(data);
         $.each(data, function(index, val){
-          html += `<option value="${val['kode_kebutuhan']}, ${val['nama_kebutuhan']}, ${val['kebutuhan_id']}">${val['nama_kebutuhan']}</option>`;
+          html += `<option value="${val['kode_kebutuhan']}, ${val['nama_kebutuhan']}, ${val['kebutuhan_id']}, ${val['kategori_kebutuhan_id']}">${val['nama_kebutuhan']}</option>`;
         });
         $("#nama_kebutuhan_s" + arr).html(html);
       }
@@ -460,11 +460,11 @@
         success: function(data) {
           $("#e_nama_kebutuhan").val(data.nama_kebutuhan);
           $("#e_deskripsi").text(data.deskripsi);
-          $("#e_kategori_kebutuhan_id").val(data.kategori_kebutuhan_id);
+          $("#e_kategori_kebutuhan_id").find('option [value="'+data.kategori_kebutuhan_id + ', ' + data.kode_kategori+'"]').attr('selected', true);
           $("#e_id").val(data.kebutuhan_id);
           $("#e_satuan").val(data.satuan);
           $("#e_stok").val(data.stok);
-          $("#e_status").val(data.status);
+          // $("#e_status").val(data.status);
           $("#e_tanggal").val(formatDate(data.created_at));
         }
       });

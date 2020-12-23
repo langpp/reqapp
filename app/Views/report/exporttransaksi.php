@@ -17,7 +17,7 @@ header("Expires: 0");
 				<th>Order ID</th>
 				<th>Tanggal</th>
 				<th>User</th>
-				<th>Barang</th>
+				<th>Kebutuhan</th>
 				<th>Status</th>
 			</tr>
 		</thead>
@@ -38,10 +38,24 @@ if (!empty($kebutuhan)) {
 					- <?php echo $manydata['nama_kebutuhan'] ?> (<?php echo $manydata['jumlah_transaksi']; ?> <?php echo $manydata['satuan']; ?>) <br>
 					<?php }}?>
 				</td>
-				<td><?php echo $data['status']; ?></td>
+				<td>
+					<?php
+						if ($data['status'] == 1) {
+							echo "Permintaan Masuk";
+						}else if ($data['status'] == 2) {
+							echo "Permintaan Diproses";
+						}else if ($data['status'] == 3) {
+							echo "Permintaan Selesai";
+						}else if ($data['status'] == 4) {
+							echo "Permintaan Ditolak";
+						}else{
+							echo "Permintaan Masuk";
+						}
+					?>
+				 </td>
 			</tr>
 			<?php }} else {
-    echo "<td style='text-align:center;' colspan='8'>Data Kosong</td>";
+    echo "<td style='text-align:center;' colspan='6'>Data Kosong</td>";
 }?>
 		</tbody>
 	</table>
