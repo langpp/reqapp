@@ -57,7 +57,7 @@ class reportController extends BaseController
     }
 
     public function excelTemplate()
-    {
+    { 
         $phpExcel = new Spreadsheet();
         $phpExcel->setActiveSheetIndex(0)
          ->setCellValue('A1','ID Kebutuhan')
