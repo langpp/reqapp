@@ -7,6 +7,7 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
+  <link rel="icon" href="<?php echo base_url('assets/img/logo/logo.png') ?>" type="image/x-icon">
 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="preload" as="style" />
   <link href="<?php echo base_url('assets/css/default/app.min.css') ?>" rel="preload" as="style" />
@@ -28,7 +29,7 @@
 			<div class="right-content">
 				<div class="login-header">
 					<div class="brand">
-						<span class="logo"></span> Aplikasi <b>REQAPP</b>
+						<img src="<?php echo base_url('assets/img/logo/logo.png') ?>" style="width: 25px"> Aplikasi <b>REQAPP</b>
 						<small>Aplikasi Manajemen Permintaan Kebutuhan Dinas</small>
 					</div>
 				</div>

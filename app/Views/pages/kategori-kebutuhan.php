@@ -146,7 +146,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const url = `http://${window.location.host}`;
+    const url = `https://${window.location.host}`;
     let html = "";
 
     const tblkategorikebutuhan = $('#tbl-kategori-kebutuhan').DataTable({

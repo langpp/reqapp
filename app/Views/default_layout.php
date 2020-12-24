@@ -7,14 +7,15 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
   <meta content="" name="description" />
   <meta content="" name="author" />
+  <link rel="icon" href="<?php echo base_url('assets/img/logo/logo.png') ?>" type="image/x-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="dns-prefetch" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="preconnect" crossorigin />
 
-  <link href="<?=base_url('assets/css/default/app.min.css')?>" rel="preload" as="style" />
-  <link href="<?=base_url('assets/css/default/app.min.css')?>" rel="stylesheet" />
+  <link href="<?php echo base_url('assets/css/default/app.min.css') ?>" rel="preload" as="style" />
+  <link href="<?php echo base_url('assets/css/default/app.min.css') ?>" rel="stylesheet" />
 
-  <?=$this->renderSection('style')?>
+  <?php echo $this->renderSection('style') ?>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
     <div id="header" class="header navbar-default">
 
       <div class="navbar-header">
-        <a href="index-2.html" class="navbar-brand"><span class="navbar-logo"></span>Aplikasi <b>REQAPP</b></a>
+        <a href="<?php echo base_url('/') ?>" class="navbar-brand"><img src="<?php echo base_url('assets/img/logo/logo.png') ?>" style="width: 20px"> &nbsp;&nbsp; Aplikasi <b>REQAPP</b></a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -39,11 +40,11 @@
       <ul class="navbar-nav navbar-right">
         <li class="dropdown navbar-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="../assets/img/user/user-13.jpg" alt="" />
+            <img src="<?php echo base_url('/assets/img/user/user-13.jpg') ?>" alt="" />
             <span class="d-none d-md-inline">Hai, Abdurrahman</span> <b class="caret"></b>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <a href="/logout" class="dropdown-item">Log Out</a>
+            <a href="<?php echo base_url('/logout') ?>" class="dropdown-item">Log Out</a>
           </div>
         </li>
       </ul>
@@ -59,7 +60,7 @@
             <a href="#" data-toggle="nav-profile">
               <div class="cover with-shadow"></div>
               <div class="image">
-                <img src="/assets/img/user/user-13.jpg" alt="" />
+                <img src="<?php echo base_url('/assets/img/user/user-13.jpg') ?>" alt="" />
               </div>
               <div class="info">
                 <b class="caret pull-right"></b>Abdurrahman Naufal
@@ -87,6 +88,7 @@
               <li><a href="/permintaan-masuk">Permintaan Masuk</a></li>
               <li><a href="/permintaan-diproses">Permintaan Diproses</a></li>
               <li><a href="/permintaan-selesai">Permintaan Selesai</a></li>
+              <li><a href="/permintaan-ditolak">Permintaan Ditolak</a></li>
             </ul>
           </li>
           <li class="has-sub">
@@ -125,18 +127,18 @@
 
     <div id="content" class="content">
       Render Page: {elapsed_time}
-      <?=$this->renderSection('content')?>
+      <?php echo $this->renderSection('content') ?>
     </div>
 
     <a href="#" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 
   </div>
 
-  <script src="<?=base_url('assets/js/app.min.js')?>"></script>
-  <script src="<?=base_url('assets/js/theme/default.min.js')?>"></script>
+  <script src="<?php echo base_url('assets/js/app.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/js/theme/default.min.js') ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-  <?=$this->renderSection('script')?>
+  <?php echo $this->renderSection('script') ?>
 </body>
 
 </html>

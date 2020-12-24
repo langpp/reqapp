@@ -98,7 +98,7 @@ $no++;
 
 <script>
   $(function() {
-    // const url = `http://${window.location.host}`;
+    // const url = `https://${window.location.host}`;
     // let html = "";
 
     // const datatable = $('#tbl-permintaan-selesai').DataTable({

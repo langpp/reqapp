@@ -1,11 +1,11 @@
-<?= $this->extend('default_layout') ?>
+<?=$this->extend('default_layout')?>
 
-<?= $this->section('style') ?>
-<link href="<?= base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>" rel="preload" as="style">
-<link href="<?= base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') ?>" rel="preload" as="style">
+<?=$this->section('style')?>
+<link href="<?=base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css')?>" rel="preload" as="style">
+<link href="<?=base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')?>" rel="preload" as="style">
 
-<link href="<?= base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
-<link href="<?= base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') ?>" rel="stylesheet">
+<link href="<?=base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
+<link href="<?=base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')?>" rel="stylesheet">
 
 <style>
   .nav.nav-tabs .nav-item .nav-link.active,
@@ -18,9 +18,9 @@
     overflow-y: auto !important;
   }
 </style>
-<?= $this->endSection() ?>
+<?=$this->endSection()?>
 
-<?= $this->section('content') ?>
+<?=$this->section('content')?>
 <ol class="breadcrumb float-xl-right">
   <li class="breadcrumb-item"><a href="#">Data Permintaan</a></li>
   <li class="breadcrumb-item active">Permintaan Ditolak</li>
@@ -66,17 +66,17 @@
   </div>
 </div>
 
-<?= $this->endSection() ?>
+<?=$this->endSection()?>
 
-<?= $this->section('script') ?>
-<script src="<?= base_url('assets/plugins/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
-<script src="<?= base_url('assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
-<script src="<?= base_url('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js') ?>"></script>
-<script src="<?= base_url('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') ?>"></script>
+<?=$this->section('script')?>
+<script src="<?=base_url('assets/plugins/datatables.net/js/jquery.dataTables.min.js')?>"></script>
+<script src="<?=base_url('assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js')?>"></script>
+<script src="<?=base_url('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js')?>"></script>
+<script src="<?=base_url('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')?>"></script>
 
 <script>
   $(function() {
-    const url = `http://${window.location.host}`;
+    const url = `https://${window.location.host}`;
     let html = "";
 
     const datatable = $('#tbl-permintaan-ditolak').DataTable({
@@ -89,11 +89,11 @@
         type: "GET"
       },
       language: {
-        emptyTable: `<img src="<?= base_url('assets/img/app/emptydata.svg') ?>" width="150"><br><br><b>Data belum tersedia.</b>`
+        emptyTable: `<img src="<?=base_url('assets/img/app/emptydata.svg')?>" width="150"><br><br><b>Data belum tersedia.</b>`
       }
     });
 
 
   });
 </script>
-<?= $this->endSection() ?>
+<?=$this->endSection()?>

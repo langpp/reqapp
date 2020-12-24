@@ -1,5 +1,5 @@
-<?= $this->extend('default_layout') ?>
-<?= $this->section('content') ?>
+<?php echo $this->extend('default_layout') ?>
+<?php echo $this->section('content') ?>
 <ol class="breadcrumb float-xl-right">
   <li class="breadcrumb-item"><a href="#">Home</a></li>
   <li class="breadcrumb-item active">Dashboard</li>
@@ -14,7 +14,7 @@
       <div class="stats-icon"><i class="fa fa-user-plus"></i></div>
       <div class="stats-info">
         <h4>Permintaan Masuk</h4>
-        <p><?= count($permintaanMasuk) ?></p>
+        <p><?php echo count($permintaanMasuk) ?></p>
       </div>
       <div class="stats-link">
         <a href="/permintaan-masuk">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
@@ -27,7 +27,7 @@
       <div class="stats-icon"><i class="fa fa-medal"></i></div>
       <div class="stats-info">
         <h4>Permintaan Diproses</h4>
-        <p><?= count($permintaanDiproses) ?></p>
+        <p><?php echo count($permintaanDiproses) ?></p>
       </div>
       <div class="stats-link">
         <a href="/permintaan-diproses">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
@@ -40,7 +40,7 @@
       <div class="stats-icon"><i class="fa fa-people-carry"></i></div>
       <div class="stats-info">
         <h4>Permintaan Selesai</h4>
-        <p><?= count($permintaanSelesai) ?></p>
+        <p><?php echo count($permintaanSelesai) ?></p>
       </div>
       <div class="stats-link">
         <a href="/permintaan-selesai">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
@@ -53,7 +53,7 @@
       <div class="stats-icon"><i class="fa fa-school"></i></div>
       <div class="stats-info">
         <h4>Permintaan Ditolak</h4>
-        <p><?= count($permintaanDitolak) ?></p>
+        <p><?php echo count($permintaanDitolak) ?></p>
       </div>
       <div class="stats-link">
         <a href="/permintaan-ditolak">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
@@ -81,12 +81,9 @@
         <div id="interactive-chart" class="height-sm"></div>
       </div>
     </div>
-
-
   </div>
 
   <div class="col-xl-4">
-
     <div class="panel panel-inverse" data-sortable-id="index-6">
       <div class="panel-heading">
         <h4 class="panel-title">Permintaan Terbaru</h4>
@@ -108,16 +105,16 @@
           </thead>
           <tbody>
             <?php
-            foreach ($permintaanTerbaru as $data) { ?>
+foreach ($permintaanTerbaru as $data) {?>
               <tr>
-                <td><?= $data->order_id ?></td>
-                <td><?= strftime("%d %B %Y %H:%M", strtotime($data->created_at)) ?></td>
-                <td><a type="button" class="btn btn-primary btn-xs detail" href="/permintaan-masuk/detail/<?= $data->order_id ?>"><i class="fa fa-eye"></i></a></td>
+                <td><?php echo $data->order_id ?></td>
+                <td><?php echo strftime("%d %B %Y %H:%M", strtotime($data->created_at)) ?></td>
+                <td><a type="button" class="btn btn-primary btn-xs detail" href="/permintaan-masuk/detail/<?php echo str_replace("#", "", $data->order_id) ?>"><i class="fa fa-eye"></i></a></td>
                 </td>
               </tr>
             <?php
-            }
-            ?>
+}
+?>
           </tbody>
         </table>
       </div>
@@ -127,9 +124,9 @@
 
 </div>
 
-<?= $this->endSection() ?>
+<?php echo $this->endSection() ?>
 
-<?= $this->section('script') ?>
+<?php echo $this->section('script') ?>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -206,4 +203,4 @@
 
   });
 </script>
-<?= $this->endSection() ?>
+<?php echo $this->endSection() ?>

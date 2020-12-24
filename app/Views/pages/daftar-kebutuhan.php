@@ -1,11 +1,11 @@
-<?=$this->extend('default_layout')?>
+<?php echo $this->extend('default_layout') ?>
 
-<?=$this->section('style')?>
-<link href="<?=base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css')?>" rel="preload" as="style">
-<link href="<?=base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')?>" rel="preload" as="style">
+<?php echo $this->section('style') ?>
+<link href="<?php echo base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>" rel="preload" as="style">
+<link href="<?php echo base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') ?>" rel="preload" as="style">
 
-<link href="<?=base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
-<link href="<?=base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') ?>" rel="stylesheet">
 
 <style>
   .nav.nav-tabs .nav-item .nav-link.active, .nav.nav-tabs .nav-item .nav-link:focus, .nav.nav-tabs .nav-item .nav-link:hover {
@@ -66,9 +66,9 @@
     font-weight: normal;
   }
 </style>
-<?=$this->endSection()?>
+<?php echo $this->endSection() ?>
 
-<?=$this->section('content')?>
+<?php echo $this->section('content') ?>
 <ol class="breadcrumb float-xl-right">
   <li class="breadcrumb-item"><a href="#">Data Master</a></li>
   <li class="breadcrumb-item active">Daftar Kebutuhan</li>
@@ -316,13 +316,13 @@
   </div>
 </div>
 
-<?=$this->endSection()?>
+<?php echo $this->endSection() ?>
 
-<?=$this->section('script')?>
-<script src="<?=base_url('assets/plugins/datatables.net/js/jquery.dataTables.min.js')?>"></script>
-<script src="<?=base_url('assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js')?>"></script>
-<script src="<?=base_url('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js')?>"></script>
-<script src="<?=base_url('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')?>"></script>
+<?php echo $this->section('script') ?>
+<script src="<?php echo base_url('assets/plugins/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') ?>"></script>
 
 <script>
   function addformkebutuhan(){
@@ -425,7 +425,7 @@
         $(this).next().html("Select a file...");
       };
     });
-    const url = `http://${window.location.host}`;
+    const url = `https://${window.location.host}`;
     let html = "";
 
     const tbldaftarkebutuhan = $('#tbl-daftar-kebutuhan').DataTable({
@@ -438,7 +438,7 @@
         type: "GET"
       },
       language: {
-        emptyTable: `<img src="<?=base_url('assets/img/app/emptydata.svg')?>" width="150"><br><br><b>Data belum tersedia.</b>`
+        emptyTable: `<img src="<?php echo base_url('assets/img/app/emptydata.svg') ?>" width="150"><br><br><b>Data belum tersedia.</b>`
       }
     });
 
@@ -476,9 +476,9 @@
       day = '' + d.getDate(),
       year = d.getFullYear();
 
-      if (month.length < 2) 
+      if (month.length < 2)
         month = '0' + month;
-      if (day.length < 2) 
+      if (day.length < 2)
         day = '0' + day;
 
       return [year, month, day].join('-');
@@ -640,4 +640,4 @@
     });
   });
 </script>
-<?=$this->endSection()?>
+<?php echo $this->endSection() ?>

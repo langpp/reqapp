@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+    <link rel="icon" href="<?php echo base_url('assets/img/logo/logo.png') ?>" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="dns-prefetch" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="preconnect" crossorigin />
@@ -22,7 +23,7 @@
         <div class="pos pos-customer" id="pos-customer">
           <div class="pos-menu">
             <div class="logo">
-              <a href="index_v3.html">
+              <a href="<?php echo base_url('/pos') ?>">
                 <div class="logo-img" style="height: 80px;"><img src="<?php echo base_url('assets/img/logo/logo.png') ?>" /></div>
                 <div class="logo-text">Purwakarta</div>
               </a>
@@ -97,8 +98,7 @@
                         </div>
                       </div>
                     </div>
-                    <?php $i++;
-}?>
+                    <?php $i++;}?>
                   </div>
               </div>
             </div>
@@ -108,123 +108,21 @@
                 <div class="price"><input type="date" class="form-control" id="tanggal_order" value="<?php echo date('Y-m-d') ?>"></div>
               </div>
               <div class="btn-row">
-                <a href="/logout" class="btn btn-default"><i class="fa fa-sign-out-alt fa-fw fa-lg"></i> Log Out</a>
+                <a href="<?php echo base_url('/logout') ?>" class="btn btn-default"><i class="fa fa-sign-out-alt fa-fw fa-lg"></i> Log Out</a>
                 <a class="btn btn-success" id="btn-pesan"><i class="fa fa-check fa-fw fa-lg"></i> Pesan</a>
               </div>
             </div>
           </div>
         </div>
-        <a href="#" class="pos-mobile-sidebar-toggler" data-toggle-class="pos-mobile-sidebar-toggled" data-target="#pos-customer">
-          <svg viewBox="0 0 16 16" class="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z" />
-            <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z" />
-          </svg>
-          <span class="badge">5</span>
-        </a>
       </div>
       <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
     </div>
-    <div class="modal modal-pos-item fade" id="modalPosItem">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-body p-0">
-            <a href="#" data-dismiss="modal" class="close"><i class="fa fa-times"></i></a>
-            <div class="pos-product">
-              <div class="pos-product-img">
-                <div class="img" style="background-image: url(../assets/img/pos/product-1.jpg)"></div>
-              </div>
-              <div class="pos-product-info">
-                <div class="title">Grill Chicken Chop</div>
-                <div class="desc">
-                  chicken, egg, mushroom, salad
-                </div>
-                <div class="price">$10.99</div>
-                <hr />
-                <div class="option-row">
-                  <div class="qty">
-                    <div class="input-group">
-                      <a href="#" class="btn btn-default"><i class="fa fa-minus"></i></a>
-                      <input type="text" class="form-control border-0 text-center" name="" value="1" />
-                      <a href="#" class="btn btn-default"><i class="fa fa-plus"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="option-row">
-                  <div class="option-title">Size</div>
-                  <div class="option-list">
-                    <div class="option">
-                      <input type="radio" id="size3" name="size" class="option-input" checked />
-                      <label class="option-label" for="size3">
-                      <span class="option-text">Small</span>
-                      <span class="option-price">+0.00</span>
-                      </label>
-                    </div>
-                    <div class="option">
-                      <input type="radio" id="size1" name="size" class="option-input" />
-                      <label class="option-label" for="size1">
-                      <span class="option-text">Large</span>
-                      <span class="option-price">+3.00</span>
-                      </label>
-                    </div>
-                    <div class="option">
-                      <input type="radio" id="size2" name="size" class="option-input" />
-                      <label class="option-label" for="size2">
-                      <span class="option-text">Medium</span>
-                      <span class="option-price">+1.50</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="option-row">
-                  <div class="option-title">Add On</div>
-                  <div class="option-list">
-                    <div class="option">
-                      <input type="checkbox" name="addon[sos]" value="true" class="option-input" id="addon1" />
-                      <label class="option-label" for="addon1">
-                      <span class="option-text">More BBQ sos</span>
-                      <span class="option-price">+0.00</span>
-                      </label>
-                    </div>
-                    <div class="option">
-                      <input type="checkbox" name="addon[ff]" value="true" class="option-input" id="addon2" />
-                      <label class="option-label" for="addon2">
-                      <span class="option-text">Extra french fries</span>
-                      <span class="option-price">+1.00</span>
-                      </label>
-                    </div>
-                    <div class="option">
-                      <input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon3" />
-                      <label class="option-label" for="addon3">
-                      <span class="option-text">Mushroom soup</span>
-                      <span class="option-price">+3.50</span>
-                      </label>
-                    </div>
-                    <div class="option">
-                      <input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon4" />
-                      <label class="option-label" for="addon4">
-                      <span class="option-text">Lemon Juice (set)</span>
-                      <span class="option-price">+2.50</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="btn-row">
-                  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                  <a href="#" class="btn btn-success">Add to cart <i class="fa fa-plus fa-fw ml-2"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="<?php echo base_url('assets/js/app.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/theme/default.min.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
       $(function () {
-        const url = `http://${window.location.host}`;
+        const url = `https://${window.location.host}`;
         let html = "";
 
         getKebutuhan(0);
@@ -475,4 +373,5 @@
         }
       });
     </script>
+  </body>
 </html>

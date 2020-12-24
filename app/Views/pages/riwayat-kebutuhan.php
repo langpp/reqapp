@@ -123,7 +123,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    const url = `http://${window.location.host}`;
+    const url = `https://${window.location.host}`;
     let html = "";
 
     const tblriwayatkebutuhan = $('#tbl-riwayat-kebutuhan').DataTable({

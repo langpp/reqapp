@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\TransaksiModel;
 use App\Models\TransaksiDetailModel;
+use App\Models\TransaksiModel;
 
 class PermintaanDiproses extends BaseController
 {
@@ -12,8 +12,7 @@ class PermintaanDiproses extends BaseController
         return view('pages/permintaan-diproses');
     }
 
-    function list()
-    {
+    function list() {
         $data = array();
         $req = $this->request->getVar();
         $no = $req['start'];
@@ -31,7 +30,7 @@ class PermintaanDiproses extends BaseController
             $row[] = strftime("%d %B %Y %H:%M", strtotime($field->created_at));
             $row[] = $field->order_id;
             $row[] = $field->nama_dinas;
-            $row[] = '<button type="button" class="btn btn-info btn-xs edit" data-id="' . $field->order_id . '"><i class="fa fa-pencil-alt"></i></button>&nbsp;<a type="button" class="btn btn-primary btn-xs detail" href="/permintaan-diproses/detail/' . $field->order_id . '"><i class="fa fa-eye"></i></a>';
+            $row[] = '<button type="button" class="btn btn-info btn-xs edit" data-id="' . $field->order_id . '"><i class="fa fa-pencil-alt"></i></button>&nbsp;<a type="button" class="btn btn-primary btn-xs detail" href="/permintaan-diproses/detail/' . str_replace("#", "", $field->order_id) . '"><i class="fa fa-eye"></i></a>';
             $data[] = $row;
         }
 
@@ -51,12 +50,12 @@ class PermintaanDiproses extends BaseController
         $model = new TransaksiDetailModel();
 
         $where = [
-            'transaksi_detail.order_id' => $id,
+            'transaksi_detail.order_id' => "#" . $id,
         ];
 
         $data = [
             'judul' => 'Permintaan Diproses',
-            'permintaan' => $model->getDetail($where)
+            'permintaan' => $model->getDetail($where),
         ];
 
         return view('pages/detail-permintaan', $data);
