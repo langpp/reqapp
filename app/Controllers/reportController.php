@@ -1,9 +1,11 @@
 <?php namespace App\Controllers;
 
-// require '/vendor/autoload.php';
 use App\Models\DaftarKebutuhanModel;
 use App\Models\HistoryKebutuhanModel;
 use App\Models\TransaksiModel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 class reportController extends BaseController
 {
@@ -56,10 +58,58 @@ class reportController extends BaseController
 
     public function excelTemplate()
     {
+        $phpExcel = new Spreadsheet();
+        $phpExcel->setActiveSheetIndex(0)
+         ->setCellValue('A1','ID Kebutuhan')
+         ->setCellValue('B1','Nama Kebutuhan')
+         ->setCellValue('C1','Kategori')
+         ->setCellValue('D1','Deskripsi')
+         ->setCellValue('E1','Stok')
+         ->setCellValue('F1','Satuan')
+         ->setCellValue('G1','Harga')
+         ->setCellValue('H1','Tanggal');
         $model = new DaftarKebutuhanModel();
-        $data = [
-            "kebutuhan" => $model->join('kategori_kebutuhan', 'kategori_kebutuhan.kategori_kebutuhan_id = kebutuhan.kategori_kebutuhan_id')->findAll(),
-        ];
-        return view('report/exceltemplate', $data);
+        $kebutuhan= $model->join('kategori_kebutuhan', 'kategori_kebutuhan.kategori_kebutuhan_id = kebutuhan.kategori_kebutuhan_id')->findAll();
+        if(!empty($kebutuhan)){
+        $col = 2;
+        foreach ($kebutuhan as $data) {
+            $arraySplit = explode('-', $data['kode_kebutuhan']);
+            $phpExcel->setActiveSheetIndex(0)
+                    ->setCellValueByColumnAndRow( 1 , $col , $data['kebutuhan_id'])
+                    ->setCellValueByColumnAndRow( 2 , $col , $data['nama_kebutuhan'])
+                    ->setCellValueByColumnAndRow( 3 , $col , $arraySplit[0])
+                    ->setCellValueByColumnAndRow( 4 , $col , "")
+                    ->setCellValueByColumnAndRow( 5 , $col , "")
+                    ->setCellValueByColumnAndRow( 6 , $col , "")
+                    ->setCellValueByColumnAndRow( 7 , $col , "")
+                    ->setCellValueByColumnAndRow( 8 , $col , date('Y-m-d H:i:s'));
+            $col++;
+        }
+        $fileName = 'templateUpload';
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($phpExcel);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'. $fileName .'.xlsx"'); 
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit();
+        }else{
+            $phpExcel->setActiveSheetIndex(0)
+                    ->setCellValueByColumnAndRow( 1 , 2 , "")
+                    ->setCellValueByColumnAndRow( 2 , 2 , "")
+                    ->setCellValueByColumnAndRow( 3 , 2 , "")
+                    ->setCellValueByColumnAndRow( 4 , 2 , "")
+                    ->setCellValueByColumnAndRow( 5 , 2 , "")
+                    ->setCellValueByColumnAndRow( 6 , 2 , "")
+                    ->setCellValueByColumnAndRow( 7 , 2 , "")
+                    ->setCellValueByColumnAndRow( 8 , 2 , date('Y-m-d H:i:s'));
+                    $writer = new Xlsx($phpExcel);
+        $fileName = 'templateUpload';
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($phpExcel);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="'. $fileName .'.xlsx"'); 
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit();
+        }
     }
 }

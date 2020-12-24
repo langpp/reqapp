@@ -1,8 +1,8 @@
  <?php
- header("Content-type: application/vnd-ms-excel");
- header("Content-Disposition: attachment; filename=Main Template.xlsx");
- header("Pragma: no-cache");
- header("Expires: 0");
+$fileName = 'templateUpload';
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="'. $fileName .'.xlsx"'); 
+header('Cache-Control: max-age=0');
  ?>
  <!DOCTYPE html>
  <html>
@@ -26,7 +26,6 @@
  		<tbody>
  			<?php
  			if (!empty($kebutuhan)) {
- 				$no = 1;
  				foreach ($kebutuhan as $data) {
  					$arraySplit = explode('-', $data['kode_kebutuhan']);
  					?>

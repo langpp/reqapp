@@ -115,9 +115,13 @@ class DaftarKebutuhan extends BaseController
                 $arraySplit = explode(', ', $req['kategori_kebutuhan_id'][$x]);
                 $kategori_kebutuhan_id = $arraySplit[0];
                 $lastid = $model->orderBy('kebutuhan_id',"desc")->findAll();
-
+                if(!empty($lastid)){
+                    $sendid = $lastid[0]['kebutuhan_id'];
+                }else{
+                    $sendid = 0;
+                }
                 $data = [
-                    'kode_kebutuhan' => $arraySplit[1] . '-' . ($lastid[0]['kebutuhan_id']+1),
+                    'kode_kebutuhan' => $arraySplit[1] . '-' . ($sendid+1),
                     'nama_kebutuhan' => $req['nama_kebutuhan_i'][$x],
                     'deskripsi' => $req['deskripsi'][$x],
                     'kategori_kebutuhan_id' => $kategori_kebutuhan_id,
@@ -140,7 +144,7 @@ class DaftarKebutuhan extends BaseController
                 }
                 $q = $model->insert($data);
                 $data2 = [
-                    'kode_kebutuhan' => $arraySplit[1] . '-' . ($lastid[0]['kebutuhan_id'] + 1),
+                    'kode_kebutuhan' => $arraySplit[1] . '-' . ($sendid + 1),
                     'kebutuhan_id' => $model->getInsertID(),
                     'nama_kebutuhan' => $req['nama_kebutuhan_i'][$x],
                     'deskripsi' => $req['deskripsi'][$x],
@@ -289,6 +293,11 @@ class DaftarKebutuhan extends BaseController
                     $tambah2 = $model2->insert($data2);
                 }else{
                     $lastid = $model->orderBy('kebutuhan_id',"desc")->findAll();
+                    if(!empty($lastid)){
+                        $sendid = $lastid[0]['kebutuhan_id'];
+                    }else{
+                        $sendid = 0;
+                    }
                     $kategori_id_find = $model3->where('kode_kategori', $sheetData[$i][2])->first();
                     $kategori_id_all = $model3->first();
                     if (!empty($kategori_id_find['kode_kategori'])) {
@@ -297,7 +306,7 @@ class DaftarKebutuhan extends BaseController
                         $kat_id = $kategori_id_all['kategori_kebutuhan_id'];
                     }
                     $data = [
-                        'kode_kebutuhan' => $sheetData[$i][2] . '-' . ($lastid[0]['kebutuhan_id']+1),
+                        'kode_kebutuhan' => $sheetData[$i][2] . '-' . ($sendid+1),
                         'nama_kebutuhan' => $sheetData[$i][1],
                         'deskripsi' => $sheetData[$i][3],
                         'kategori_kebutuhan_id' => $kat_id,
@@ -310,7 +319,7 @@ class DaftarKebutuhan extends BaseController
                     ];
                     $q = $model->insert($data);
                     $data2 = [
-                        'kode_kebutuhan' => $sheetData[$i][2] . '-' . ($lastid[0]['kebutuhan_id']+1),
+                        'kode_kebutuhan' => $sheetData[$i][2] . '-' . ($sendid+1),
                         'kebutuhan_id' => $model->getInsertID(),
                         'nama_kebutuhan' => $sheetData[$i][1],
                         'deskripsi' => $sheetData[$i][3],
